@@ -1,0 +1,71 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <Menu DockPanel.Dock="Top" IsMainMenu="True">
+                <MenuItem Header="_File">
+                    <MenuItem Click="OnClickNew" Header="_New"/>
+                    <MenuItem Click="OnClickOpen" Header="_Open..."/>
+                    <Separator/>
+                    <MenuItem Click="OnClickExit" Header="E_xit"/>
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem Click="OnClickCut" Header="Cu_t"/>
+                    <MenuItem Click="OnClickCopy" Header="_Copy"/>
+                    <MenuItem Click="OnClickPaste"  Header="_Paste"/>
+                </MenuItem>
+                <MenuItem Header="_Format">
+                    <MenuItem Header="_Align">
+                        <MenuItem Click="AlignLeft" Header="_Left"/>
+                        <MenuItem Click="AlignCenter" Header="_Center"/>
+                        <MenuItem Click="AlignRight" Header="_Right"/>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <ToolBarTray DockPanel.Dock="Top">
+                <ToolBar Band="0" BandIndex="0">
+                    <Button  ToolBar.OverflowMode="AsNeeded" Height="40" Click="OnClickCut">
+                        <Image Source="icon\cut.png"/>
+                    </Button>
+                    <Button ToolBar.OverflowMode="AsNeeded" Height="40" Click="OnClickCopy">
+                        <Image Source="icon\Copy.png"/>
+                    </Button>
+                    <Button  ToolBar.OverflowMode="Never" Height="40" Click="OnClickPaste">
+                        <Image Source="icon\Paste.png"/>
+                    </Button>
+                </ToolBar>
+                <ToolBar Band="0" BandIndex="2">
+                    <Button ToolBar.OverflowMode="Never" Height="30" Click="AlignLeft">
+                        <Image Source="icon\AlignLeft.png"/>
+                    </Button>
+                    <Button ToolBar.OverflowMode="AsNeeded" Height="30" Click="AlignCenter">
+                        <Image Source="icon\AlignCenter.png"/>
+                    </Button>
+                    <Button ToolBar.OverflowMode="AsNeeded" Height="30" Click="AlignRight">
+                        <Image Source="icon\AlignRight.png"/>
+                    </Button>
+                </ToolBar>
+            </ToolBarTray>
+            <StatusBar DockPanel.Dock="Bottom">
+                <StatusBarItem>
+                    <TextBlock x:Name="currentLine" Text="Ln 1" Width="40"/>
+                </StatusBarItem>
+                <Separator/>
+                <StatusBarItem>
+                    <TextBlock x:Name="currentColumn" Text="Col 1" Width="40"/>
+                </StatusBarItem>
+            </StatusBar>
+            <TextBox x:Name="textBox"
+                 AcceptsReturn="True" 
+                 HorizontalScrollBarVisibility="Auto"
+                 SelectionChanged="OnSelectionChanged"
+                 VerticalScrollBarVisibility="Auto" IsEnabled="False"/>
+        </DockPanel>
+    </Grid>
+</Window>
