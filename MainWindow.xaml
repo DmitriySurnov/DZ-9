@@ -5,26 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Текстовый редатор" Height="450" Width="800">
     <Grid>
         <DockPanel LastChildFill="True">
             <Menu DockPanel.Dock="Top" IsMainMenu="True">
-                <MenuItem Header="_File">
-                    <MenuItem Click="OnClickNew" Header="_New"/>
-                    <MenuItem Click="OnClickOpen" Header="_Open..."/>
+                <MenuItem x:Name="PM_1" Header="_File">
+                    <MenuItem x:Name="PM_1_1" Click="OnClickNew" Header="_New"/>
+                    <MenuItem x:Name="PM_1_2" Click="OnClickOpen" Header="_Open..."/>
+                    <MenuItem x:Name="PM_1_3" Header="_Язык">
+                        <MenuItem x:Name="PM_1_3_1"  Header="_Русский" Click="PM_1_3_Click"/>
+                        <MenuItem x:Name="PM_1_3_2"  Header="_Английский" Click="PM_1_3_Click"/>
+                        <MenuItem x:Name="PM_1_3_3"  Header="_Испанский" Click="PM_1_3_Click"/>
+                        <MenuItem x:Name="PM_1_3_4"  Header="_Французский" Click="PM_1_3_Click"/>
+                    </MenuItem>
                     <Separator/>
-                    <MenuItem Click="OnClickExit" Header="E_xit"/>
+                    <MenuItem x:Name="PM_1_4" Click="OnClickExit" Header="Exit"/>
                 </MenuItem>
-                <MenuItem Header="_Edit">
-                    <MenuItem Click="OnClickCut" Header="Cu_t"/>
-                    <MenuItem Click="OnClickCopy" Header="_Copy"/>
-                    <MenuItem Click="OnClickPaste"  Header="_Paste"/>
+                <MenuItem x:Name="PM_2" Header="_Edit">
+                    <MenuItem x:Name="PM_2_1" Click="OnClickCut" Header="Cut"/>
+                    <MenuItem x:Name="PM_2_2" Click="OnClickCopy" Header="_Copy"/>
+                    <MenuItem x:Name="PM_2_3" Click="OnClickPaste"  Header="_Paste"/>
                 </MenuItem>
-                <MenuItem Header="_Format">
-                    <MenuItem Header="_Align">
-                        <MenuItem Click="AlignLeft" Header="_Left"/>
-                        <MenuItem Click="AlignCenter" Header="_Center"/>
-                        <MenuItem Click="AlignRight" Header="_Right"/>
+                <MenuItem x:Name="PM_3" Header="_Format">
+                    <MenuItem x:Name="PM_3_1" Header="_Align">
+                        <MenuItem x:Name="PM_3_1_1" Click="AlignLeft" Header="_Left"/>
+                        <MenuItem x:Name="PM_3_1_2" Click="AlignCenter" Header="_Center"/>
+                        <MenuItem x:Name="PM_3_1_3" Click="AlignRight" Header="_Right"/>
                     </MenuItem>
                 </MenuItem>
             </Menu>
@@ -53,12 +59,14 @@
                 </ToolBar>
             </ToolBarTray>
             <StatusBar DockPanel.Dock="Bottom">
+                <Label x:Name="Line" Content="Line"/>
                 <StatusBarItem>
-                    <TextBlock x:Name="currentLine" Text="Ln 1" Width="40"/>
+                    <TextBlock x:Name="currentLine" Text=" 1" Width="40"/>
                 </StatusBarItem>
                 <Separator/>
+                <Label x:Name="Column" Content="Col"/>
                 <StatusBarItem>
-                    <TextBlock x:Name="currentColumn" Text="Col 1" Width="40"/>
+                    <TextBlock x:Name="currentColumn" Text=" 1" Width="40"/>
                 </StatusBarItem>
             </StatusBar>
             <TextBox x:Name="textBox"
